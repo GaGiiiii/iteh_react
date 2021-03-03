@@ -114,6 +114,7 @@ function App() {
 
   const [allCars, setAllCars] = useState(baseCars);
   const [searchedCars, setSearchedCars] = useState([]);
+  const [hasSearch, setHasSearch] = useState(false);
 
   // Add Car
   function addCar(car) {
@@ -132,6 +133,11 @@ function App() {
   // Search Cars
   function searchCars(name) {
     setSearchedCars(allCars.filter((car) => car.name.toLowerCase().includes(name.toLowerCase())));
+    if (name == '') {
+      setHasSearch(false);
+    } else {
+      setHasSearch(true);
+    }
   }
 
   return (
@@ -139,7 +145,7 @@ function App() {
       <Navbar onSearch={searchCars} />
 
       <Container>
-        <Cars cars={allCars} searchedCars={searchedCars} onDelete={deleteCar} />
+        <Cars cars={allCars} searchedCars={searchedCars} onDelete={deleteCar} hasSearch={hasSearch} />
         <Row className="mt-5 mb-5">
           <Col className="text-center">
             <Accordion defaultActiveKey="0">

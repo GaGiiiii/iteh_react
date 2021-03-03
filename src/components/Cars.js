@@ -3,9 +3,9 @@ import Car from './Car';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-const Cars = ({ cars, onDelete, searchedCars }) => {
+const Cars = ({ cars, onDelete, searchedCars, hasSearch }) => {
 
-  if (searchedCars.length > 0) {
+  if (hasSearch) {
     return (
       <>
         <h1 className="mt-5 mb-5">Car Choices<hr /></h1>

@@ -31,8 +31,8 @@ const Task = ({ car, onDelete }) => {
         <p className='m-0'>hp: {car.hp} HP</p>
         <p className='m-0'>cubage: {car.cubage} cm3</p>
         <p className='m-0'>engine: {car.engine}</p>
-        <p className='m-0'>price: {car.price} &euro;</p>
-        <p className='m-0 mb-2'>mileage: {car.mileage} km</p>
+        <p className='m-0'>mileage: {car.mileage} km</p>
+        <p className='m-0 mb-2'>price: {car.price} &euro;</p>
         
         <Card.Text className="mb-0">
           {description()}

@@ -16,22 +16,22 @@ const ContactForm = () => {
     e.preventDefault();
 
     if (!firstname) {
-      alert("Please enter firstname");
       setSuccessfull(0);
+      alert("Please enter firstname");
 
       return;
     }
 
     if (!lastname) {
-      alert("Please enter lastname");
       setSuccessfull(0);
+      alert("Please enter lastname");
 
       return;
     }
 
     if (!message) {
-      alert("Please enter message");
       setSuccessfull(0);
+      alert("Please enter message");
 
       return;
     }

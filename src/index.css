@@ -7,3 +7,7 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+
+.cars-row .col-md-4:nth-of-type(n+4){
+  margin-top: 2rem;
+}

@@ -2,7 +2,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar.js';
 import Cars from './components/Cars.js';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Accordion from 'react-bootstrap/Accordion';
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
+import { FaCheck, FaPlus } from 'react-icons/fa';
 
 
 function App() {
@@ -108,12 +115,48 @@ function App() {
     ]
   );
 
+  // Delete Car
+
+  function deleteCar(id) {
+    setCars(cars.filter((car) => car.id !== id));
+  }
+
   return (
     <>
       <Navbar />
 
       <Container>
-        <Cars cars={cars} />
+        <Cars cars={cars} onDelete={deleteCar} />
+        <Row className="mt-5 mb-5">
+          <Col className="text-center">
+            <Accordion defaultActiveKey="0">
+              <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                <Button variant="dark">Add New Car <FaPlus style={{position: "relative", top: "-1px"}} /></Button>
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="0">
+                <Form className="text-left">
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Text className="text-muted">
+                      We'll never share your email with anyone else.
+                    </Form.Text>
+                  </Form.Group>
+                  <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Check me out" />
+                  </Form.Group>
+                  <Button className="d-block w-100" variant="dark" type="submit">
+                    Submit <FaCheck style={{position: "relative", top: "-1px"}} />
+                  </Button>
+                </Form>
+              </Accordion.Collapse>
+            </Accordion>
+          </Col>
+        </Row>
       </Container>
     </>
   );

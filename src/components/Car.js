@@ -1,9 +1,9 @@
-import { FaTimes } from 'react-icons/fa';
+import { FaExclamationCircle, FaTimes } from 'react-icons/fa';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Accordion from 'react-bootstrap/Accordion'
 
-const Task = ({ car }) => {
+const Task = ({ car, onDelete }) => {
 
   function description() {
     if (car.desc.length > 150) {
@@ -27,9 +27,18 @@ const Task = ({ car }) => {
       <Card.Img variant="top" src={car.img} />
       <Card.Body>
         <Card.Title>{car.name}</Card.Title>
-        <Card.Text>
+        <Card.Subtitle className="mb-2 text-muted">{car.year}</Card.Subtitle>
+        <p className='m-0'>hp: {car.hp} HP</p>
+        <p className='m-0'>cubage: {car.cubage} cm3</p>
+        <p className='m-0'>engine: {car.engine}</p>
+        <p className='m-0'>price: {car.price} &euro;</p>
+        <p className='m-0 mb-2'>mileage: {car.mileage} km</p>
+        
+        <Card.Text className="mb-0">
           {description()}
         </Card.Text>
+
+        <Button variant="danger" onClick={() => onDelete(car.id)} >Delete <FaExclamationCircle style={{position: "relative", top: "-1px"}} /></Button>
       </Card.Body>
     </Card>
   )
